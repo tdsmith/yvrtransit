@@ -89,7 +89,8 @@ def archive(repository):
             to_archive = glob(os.path.join(repository, f"{date}T*_{stub}"))
             with tarfile.open(archive_filename, mode="x:xz") as tar:
                 for target in to_archive:
-                    tar.add(target, recursive=False)
+                    arcname = os.path.basename(target)
+                    tar.add(target, arcname=arcname, recursive=False)
             for target in to_archive:
                 try:
                     os.unlink(target)
