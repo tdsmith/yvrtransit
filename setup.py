@@ -20,5 +20,6 @@ setup(
     install_requires=['click', 'python-dateutil', 'requests'],
     entry_points={'console_scripts': [
         'yvrtransit_fetch=yvrtransit.fetch:fetch',
+        'yvrtransit_archive=yvrtransit.fetch:archive',
     ]}
 )
