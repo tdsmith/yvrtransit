@@ -37,7 +37,11 @@ def fetch(feed, repository):
     local_target = os.path.join(repository, filename)
 
     url, needs_auth = URLS[feed]
-    req = requests.get(url, params={"apikey": _get_api_key()} if needs_auth else {})
+    req = requests.get(
+            url,
+            params={"apikey": _get_api_key()} if needs_auth else {},
+            timeout=60,
+    )
     req.raise_for_status()
 
     with open(local_target, "wb") as f:
