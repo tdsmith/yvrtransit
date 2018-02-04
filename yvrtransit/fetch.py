@@ -91,6 +91,7 @@ def archive(repository):
         for date in dates_to_archive:
             archive_filename = os.path.join(repository, f"{date}_{stub}.tar.xz")
             to_archive = glob(os.path.join(repository, f"{date}T*_{stub}"))
+            to_archive.sort()
             with tarfile.open(archive_filename, mode="x:xz") as tar:
                 for target in to_archive:
                     arcname = os.path.basename(target)
@@ -98,5 +99,5 @@ def archive(repository):
             for target in to_archive:
                 try:
                     os.unlink(target)
-                except:
+                except Exception:
                     warnings.warn(f"Could not delete {target}; continuing.")
