@@ -7,6 +7,44 @@
 
 <h1>yvr transit data index</h1>
 
+<h2>what's this?</h2>
+
+<p>This is an archive of "real-time" transit information from the TransLink
+<a href="https://developer.translink.ca/">GTFS-realtime Open API</a>. It provides
+historical data of the location of every tracked vehicle in the TransLink service
+territory. It is updated every minute of every day.</p>
+
+<p>The data are presented <b>as they were received off the wire</b>, as messages
+in the Google Protocol Buffers format, according to the
+<a href="https://developers.google.com/transit/gtfs-realtime/#data_format">
+  GTFS-realtime documentation
+</a> hosted by Google.</p>
+
+<p>Each monthly rollup .zip contains daily archives in .tar.xz format for each
+feed type provided by TransLink.</p>
+
+<p>You will need
+  <a href="https://developer.translink.ca/ServicesGtfs/GtfsData">
+    static GTFS data
+  </a>
+  matching the period of the real-time data you want to analyze in order to
+  make sense of them. TransLink updates their schedules at least four times a
+  year. Please note that they publish the new static data <i>before</i> it
+  takes effect and the static data sets are non-overlapping; you need to use the
+  previous static data archive to interpret data from the end of the schedule
+  period.
+</p>
+
+<p>The data are captured by
+  <a href="https://github.com/tdsmith/yvrtransit">
+    some Python code
+  </a>.
+</p>
+
+<h2>okay but why?</h2>
+
+I love TransLink but the 44 was late <i>one too many times</i> last summer.
+
 <h2>monthly rollups</h2>
 
 <ul>
@@ -22,6 +60,8 @@
     <li><a href="{{ daily }}">{{ daily }}</a></li>
   {% endfor %}
 </ul>
+
+<p>Some of the data used in this product or service is provided by permission of TransLink. TransLink assumes no responsibility for the accuracy or currency of the Data used in this product or service.</p>
 
 </body>
 </html>
