@@ -85,6 +85,10 @@ def archive(repository):
 
     `archive` creates separate trip and position archives.
     """
+    do_archive(repository)
+
+
+def do_archive(repository):
     for stub in ["position", "trip"]:
         filenames = glob(os.path.join(repository, f"*_{stub}"))
         dates_to_archive = _dates_to_archive(filenames)
