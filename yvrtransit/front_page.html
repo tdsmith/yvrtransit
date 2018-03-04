@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>yvr transit data index</title>
+</head>
+<body>
+
+<h1>yvr transit data index</h1>
+
+<h2>monthly rollups</h2>
+
+<ul>
+  {% for rollup in rollups %}
+    <li><a href="{{ rollup }}">{{ rollup }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>this month's dailies</h2>
+
+<ul>
+  {% for daily in dailies %}
+    <li><a href="{{ daily }}">{{ daily }}</a></li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>

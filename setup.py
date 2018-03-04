@@ -17,9 +17,11 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3.6',
     ],
-    install_requires=['click', 'python-dateutil', 'requests'],
+    install_requires=['click', 'Jinja2', 'python-dateutil', 'requests'],
     entry_points={'console_scripts': [
         'yvrtransit_fetch=yvrtransit.fetch:fetch',
         'yvrtransit_archive=yvrtransit.fetch:archive',
-    ]}
+        'yvrtransit_advertise=yvrtransit.advertise:advertise',
+    ]},
+    include_package_data=True,
 )
